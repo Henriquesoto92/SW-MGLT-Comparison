@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import "@/styles/globals.css";
-import { Inter, Fira_Code } from "next/font/google";
+import { Fira_Code } from "next/font/google";
 import Navbar from "@/components/navbar";
 
 const inter = Fira_Code({ subsets: ["latin"] });
@@ -23,7 +23,6 @@ export default function RootLayout({
         <Navbar />
         {children}
       </body>
-      ,
     </html>
   );
 }
