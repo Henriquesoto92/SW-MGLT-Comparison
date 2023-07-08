@@ -19,7 +19,7 @@ export default function InputDistance(props: IProps) {
   };
 
   return (
-    <div className="flex w-full max-w-sm items-center space-x-2">
+    <div className="flex w-full items-center space-x-2">
       <Input
         type="number"
         placeholder="Distance in MGLT"
@@ -29,7 +29,6 @@ export default function InputDistance(props: IProps) {
         onChange={onNumberChange}
         required
       />
-      <Button type="submit">calculate</Button>
     </div>
   );
 }
