@@ -1,18 +1,14 @@
-"use client";
-
-import { getStarships } from "@/services/hooks/useStarships";
+import Comparator from "@/components/Comparator";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24 text-gray-400">
-      Comparison between StarWars Starships
-      <button
-        onClick={() => {
-          console.log(getStarships());
-        }}
-      >
-        clique aqui
-      </button>
+    <main className="flex gap-4 min-h-screen flex-col items-center p-20 mt-10 text-gray-400">
+      <h1>
+        How many stops would it take if a Star Wars spaceship needs to travel
+        the distance below the input below
+      </h1>
+
+      <Comparator />
     </main>
   );
 }

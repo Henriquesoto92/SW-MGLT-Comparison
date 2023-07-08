@@ -1,3 +1,5 @@
+"use client";
+
 import { Starship } from "@/interface/useStarships";
 import { baseUrl } from "@/services/api";
 
@@ -8,8 +10,6 @@ export async function getStarships() {
   const results: Starship[] = [];
 
   await getAllStarships(initialUrl, results);
-
-  console.log(results);
   return results;
 }
 
@@ -21,7 +21,7 @@ async function getAllStarships(
     let nextPageUrl: string | null = url;
 
     while (nextPageUrl) {
-      const response = await fetch(nextPageUrl);
+      const response = await fetch(nextPageUrl, { cache: "default" });
       const data = (await response.json()) as {
         next: string | null;
         results: Starship[];
