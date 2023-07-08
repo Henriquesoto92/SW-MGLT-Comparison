@@ -1,5 +1,6 @@
 "use client";
-import { getStarships } from "@/services/useStarships";
+
+import { getStartships } from "@/services/hooks/useStarships";
 
 export default function Home() {
   return (
@@ -7,7 +8,7 @@ export default function Home() {
       Comparison between StarWars spaceships
       <button
         onClick={() => {
-          console.log(getStarships());
+          console.log(getStartships());
         }}
       >
         clique aqui
