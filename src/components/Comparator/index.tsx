@@ -8,12 +8,12 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { getStarships } from "@/services/hooks/useStarships";
 import { use, useState } from "react";
 import InputDistance from "./InputDistance";
+import { useStarships } from "@/services/hooks/useStarships";
 
 export default function Comparator() {
-  const starshipData = use(getStarships());
+  const { data: starshipData } = useStarships();
   const [distance, setDistance] = useState<number | null>(10000);
 
   console.log(distance, starshipData);

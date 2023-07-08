@@ -2,21 +2,13 @@
 
 import { Starship } from "@/interface/useStarships";
 import { baseUrl } from "@/services/api";
+import { useQuery } from "@tanstack/react-query";
 
 const endPoint = "starships";
 
-export async function getStarships() {
-  const initialUrl = `${baseUrl}/${endPoint}`;
+async function getAllStarships(url: string): Promise<Starship[]> {
   const results: Starship[] = [];
 
-  await getAllStarships(initialUrl, results);
-  return results;
-}
-
-async function getAllStarships(
-  url: string,
-  results: Starship[]
-): Promise<void> {
   try {
     let nextPageUrl: string | null = url;
 
@@ -30,8 +22,16 @@ async function getAllStarships(
       results.push(...data.results);
       nextPageUrl = data.next;
     }
+
+    return results;
   } catch (error) {
     console.error("Ocorreu um erro:", error);
     throw error;
   }
+}
+
+export function useStarships() {
+  return useQuery(["starships"], () =>
+    getAllStarships(`${baseUrl}/${endPoint}`)
+  );
 }

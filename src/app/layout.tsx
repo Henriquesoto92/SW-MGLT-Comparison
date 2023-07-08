@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import "@/styles/globals.css";
 import { Fira_Code } from "next/font/google";
 import Navbar from "@/components/navbar";
+import { ReactQueryProvider } from "@/services/provider/ReactQueryProvider";
 
 const inter = Fira_Code({ subsets: ["latin"] });
 
@@ -16,13 +17,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <link rel="Icon" href="/favicon.ico" sizes="any" />
-      <head />
-      <body className={`${inter.className} bg-gray-800`}>
-        <Navbar />
-        {children}
-      </body>
-    </html>
+    <ReactQueryProvider>
+      <html lang="en">
+        <link rel="Icon" href="/favicon.ico" sizes="any" />
+        <head />
+        <body className={`${inter.className} bg-gray-800`}>
+          <Navbar />
+          {children}
+        </body>
+      </html>
+    </ReactQueryProvider>
   );
 }
