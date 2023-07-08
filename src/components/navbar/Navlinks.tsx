@@ -1,15 +1,8 @@
 "use client";
+
+import { pathLinks } from "@/mock/links";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
-type IPathLinks = {
-  name: string;
-  href: string;
-};
-const pathLinks: IPathLinks[] = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "about" },
-];
 
 const Navlinks = () => {
   const pathname = usePathname();
