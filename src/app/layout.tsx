@@ -1,8 +1,9 @@
 import { Metadata } from "next";
 import "@/styles/globals.css";
-import { Inter } from "next/font/google";
+import { Inter, Fira_Code } from "next/font/google";
+import Navbar from "@/components/navbar";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Fira_Code({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "SW-MGLT-Comparison",
@@ -18,7 +19,11 @@ export default function RootLayout({
     <html lang="en">
       <link rel="Icon" href="/favicon.ico" sizes="any" />
       <head />
-      <body className={`${inter.className} bg-primary-blue-5`}>{children}</body>
+      <body className={`${inter.className} bg-gray-800`}>
+        <Navbar />
+        {children}
+      </body>
+      ,
     </html>
   );
 }

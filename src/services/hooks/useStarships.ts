@@ -3,7 +3,7 @@ import { baseUrl } from "@/services/api";
 
 const endPoint = "starships";
 
-export async function getStartships() {
+export async function getStarships() {
   const initialUrl = `${baseUrl}/${endPoint}`;
   const results: Starship[] = [];
 
